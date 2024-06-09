@@ -11,15 +11,25 @@ namespace Mottu.Api.Controllers
     public class RentalsController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RentalsController(IMediator mediator)
+        public RentalsController(IMediator mediator, IHttpContextAccessor httpContextAccessor)
         {
             _mediator = mediator;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateRental([FromBody] CreateRentalCommand command)
         {
+            string userIdString = _httpContextAccessor.HttpContext?.User?.Identity?.Name;
+            if (string.IsNullOrEmpty(userIdString) || !Guid.TryParse(userIdString, out Guid deliverymanId))
+            {
+                return BadRequest("Invalid user identity.");
+            }
+
+            command.SetDeliverymanId(deliverymanId);
+
             if (command == null)
             {
                 return BadRequest("Invalid rental command.");

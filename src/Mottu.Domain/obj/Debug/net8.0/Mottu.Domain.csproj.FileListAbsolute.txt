@@ -9,3 +9,4 @@ C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Domain\obj\Debug\net8.0\Mottu.Do
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Domain\obj\Debug\net8.0\refint\Mottu.Domain.dll
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Domain\obj\Debug\net8.0\Mottu.Domain.pdb
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Domain\obj\Debug\net8.0\ref\Mottu.Domain.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Domain\obj\Debug\net8.0\Mottu.Domain.sourcelink.json

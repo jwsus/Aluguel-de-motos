@@ -17,3 +17,4 @@ C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Infrastructure\obj\Debug\net8.0\
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Infrastructure\obj\Debug\net8.0\Mottu.Infrastructure.pdb
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Infrastructure\obj\Debug\net8.0\Mottu.Infrastructure.genruntimeconfig.cache
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Infrastructure\obj\Debug\net8.0\ref\Mottu.Infrastructure.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Infrastructure\obj\Debug\net8.0\Mottu.Infrastructure.sourcelink.json
