@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dgSpecHash": "cmSOfx1u1STnKp+PnHoehu9pnecmAZrhLGbcD9+VmjZ0/4sftL/BVVNWKmK+wD9nPpoZJDQTXxzWu+AhZmYTZw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\WINDOWS\\Documents\\Moto\\Mottu\\src\\Mottu.Application\\Mottu.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\fluentvalidation\\11.3.0\\fluentvalidation.11.3.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.6\\microsoft.entityframeworkcore.8.0.6.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.6\\microsoft.entityframeworkcore.abstractions.8.0.6.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.6\\microsoft.entityframeworkcore.analyzers.8.0.6.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.14.1\\microsoft.identitymodel.jsonwebtokens.6.14.1.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.logging\\6.14.1\\microsoft.identitymodel.logging.6.14.1.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.14.1\\microsoft.identitymodel.tokens.6.14.1.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.14.1\\system.identitymodel.tokens.jwt.6.14.1.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'System.IdentityModel.Tokens.Jwt' 6.14.1 tem uma moderado vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

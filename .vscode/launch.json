@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": ".NET Core Launch (console)",
+          "type": "coreclr",
+          "request": "launch",
+          "preLaunchTask": "build",
+          "program": "${workspaceFolder}/src/Mottu.Api/bin/Debug/net8.0/Mottu.Api.dll",
+          "args": [],
+          "cwd": "${workspaceFolder}",
+          "stopAtEntry": false,
+          "console": "internalConsole",
+          "internalConsoleOptions": "openOnSessionStart",
+          "launchBrowser": {
+              "enabled": true,
+              "args": "${auto-detect-url}",
+              "windows": {
+                  "command": "cmd.exe",
+                  "args": "/C start ${auto-detect-url}"
+              },
+              "osx": {
+                  "command": "open"
+              },
+              "linux": {
+                  "command": "xdg-open"
+              }
+          },
+          "env": {
+              "ASPNETCORE_ENVIRONMENT": "Development"
+          },
+          "sourceFileMap": {
+              "/Views": "${workspaceFolder}/Views"
+          }
+      }
+  ]
+}
