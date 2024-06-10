@@ -12,5 +12,11 @@ namespace Mottu.Domain.Entities
         // Foreign key to User
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
+
+        // Novo campo para indicar se o entregador está ativo
+        public bool IsActive { get; set; }
+
+        // Novo campo para indicar se o entregador já aceitou um pedido
+        public bool HasAcceptedOrder { get; set; }
     }
 }

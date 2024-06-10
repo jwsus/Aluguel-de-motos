@@ -12,12 +12,24 @@ using Microsoft.IdentityModel.Tokens;
 using Mottu.Domain.Entities;
 using Mottu.Application.Interfaces;
 using Mottu.Application.Services;
+using RabbitMQ.Client;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-var teste = builder.Configuration.AddJsonFile("src/Mottu.Api/appsettings.json", optional: false, reloadOnChange: true);
+
+// builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+// Obtém o diretório onde o assembly está localizado
+var location = Assembly.GetExecutingAssembly().Location;
+var directory = Path.GetDirectoryName(location);
+
+// Constroi o caminho completo para o appsettings.json
+var configurationPath = Path.Combine(directory, "appsettings.json");
+
+// builder.Configuration.AddJsonFile("src/Mottu.Api/appsettings.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile(configurationPath, optional: false, reloadOnChange: true);
+
 
 builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
@@ -36,7 +48,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo 
     { 
-        Title = "MeuProjeto API", 
+        Title = "Mottu API", 
         Version = "v1",
         Description = "API do MeuProjeto",
     });
@@ -63,6 +75,20 @@ builder.Services.AddSwaggerGen(c =>
         new string[] {}
     }});
 });
+
+// Configurar RabbitMQ
+builder.Services.AddSingleton(sp =>
+{
+    var factory = new ConnectionFactory()
+    {
+        HostName = "localhost",
+        UserName = "user",
+        Password = "password",
+        Port = 15672
+    };
+    return factory.CreateConnection();
+});
+
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(options =>
@@ -102,7 +128,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MeuProjeto API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mottu API V1");
         c.RoutePrefix = "swagger"; // Swagger disponível na raiz (url base)
         
     });

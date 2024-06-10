@@ -71,6 +71,10 @@
               "target": "Package",
               "version": "[6.14.1, )"
             },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.14.1, )"

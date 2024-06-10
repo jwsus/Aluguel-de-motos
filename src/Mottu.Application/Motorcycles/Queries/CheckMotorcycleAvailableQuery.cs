@@ -4,7 +4,7 @@ using Mottu.Application.Common.Interfaces;
 
 namespace Mottu.Application.Motorcycles.Queries
 {
-     public record CheckMotorcycleAvailableQuery(Guid MotorcycleId) : IRequest<bool>;
+    public record CheckMotorcycleAvailableQuery(Guid MotorcycleId) : IRequest<bool>;
     public class CheckMotorcycleAvailableQueryHandler : IRequestHandler<CheckMotorcycleAvailableQuery, bool>
     {
         private readonly IApplicationDbContext _context;

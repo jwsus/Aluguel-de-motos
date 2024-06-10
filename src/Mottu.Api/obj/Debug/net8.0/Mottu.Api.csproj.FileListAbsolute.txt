@@ -123,3 +123,6 @@ C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\Microsoft.I
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\obj\Debug\net8.0\Mottu.Api.sourcelink.json
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

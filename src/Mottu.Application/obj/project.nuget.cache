@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cmSOfx1u1STnKp+PnHoehu9pnecmAZrhLGbcD9+VmjZ0/4sftL/BVVNWKmK+wD9nPpoZJDQTXxzWu+AhZmYTZw==",
+  "dgSpecHash": "vpNUUsOt3SQ+9vHYMPBl60HngsTgiHGdZHIHrKZAOhXMqCNoq+mp38YAQoq1Te5x+Via6CzFA0coFP0g3OCvkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\WINDOWS\\Documents\\Moto\\Mottu\\src\\Mottu.Application\\Mottu.Application.csproj",
   "expectedPackageFiles": [
@@ -26,8 +26,11 @@
     "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.14.1\\microsoft.identitymodel.tokens.6.14.1.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.14.1\\system.identitymodel.tokens.jwt.6.14.1.nupkg.sha512",
-    "C:\\Users\\WINDOWS\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": [
     {

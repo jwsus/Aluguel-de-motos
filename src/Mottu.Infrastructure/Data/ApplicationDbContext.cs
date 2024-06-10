@@ -13,6 +13,8 @@ namespace Mottu.Infrastructure.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Deliveryman> Deliverymans { get; set; }
         public DbSet<Rental> Rentals { get; set; }
+        public DbSet<Notification> Notifications { get ; set; }
+        public DbSet<Order> Orders { get ; set; }
 
     // public DbSet<DeliveryPerson> DeliveryPersons { get; set; }
     // public DbSet<Rental> Rentals { get; set; }
@@ -34,5 +36,5 @@ namespace Mottu.Infrastructure.Data
             // modelBuilder.ApplyConfiguration(new RentalConfiguration());
             // modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
-    }
+  }
 }

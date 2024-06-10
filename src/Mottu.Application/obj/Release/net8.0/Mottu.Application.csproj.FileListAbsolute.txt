@@ -1,0 +1,16 @@
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\bin\Release\net8.0\Mottu.Application.deps.json
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\bin\Release\net8.0\Mottu.Application.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\bin\Release\net8.0\Mottu.Application.pdb
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\bin\Release\net8.0\Mottu.Domain.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\bin\Release\net8.0\Mottu.Domain.pdb
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.csproj.AssemblyReference.cache
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.AssemblyInfoInputs.cache
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.AssemblyInfo.cs
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.csproj.CoreCompileInputs.cache
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.sourcelink.json
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Ap.5D09317B.Up2Date
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\refint\Mottu.Application.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\Mottu.Application.pdb
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Application\obj\Release\net8.0\ref\Mottu.Application.dll

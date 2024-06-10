@@ -1,11 +1,15 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+// using Mottu.Api.Services;
+
+// using Mottu.Api.Services;
+using Mottu.Application.Common.Interfaces;
 using Mottu.Application.Deliverymen.Commands;
 using Mottu.Application.Interfaces;
 using Mottu.Application.Motorcycles.Commands;
 using Mottu.Application.Motorcycles.Queries;
+using Mottu.Application.Services;
 using Mottu.Infrastructure.Repositories;
-using System.Reflection;
 
 namespace Mottu.Infrastructure
 {
@@ -22,6 +26,10 @@ namespace Mottu.Infrastructure
             services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDeliverymanRepository, DeliverymanRepository>();
+            services.AddScoped<IRentalRepository, RentalRepository>();
+
+            // services.AddSingleton<OrderNotificationProducer>(); // Registrar o serviço como Singleton
+            // services.AddHostedService<OrderNotificationConsumer>();
 
             return services;
         }

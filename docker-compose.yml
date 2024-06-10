@@ -1,0 +1,14 @@
+services:
+  app:
+    image: mcr.microsoft.com/dotnet/aspnet:8.0
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=postgres;Database=mottu
+    volumes:
+      - ./data-protection-keys:/root/.aspnet/DataProtection-Keys

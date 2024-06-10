@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS migrate
+WORKDIR /src
+
+# Copiar csproj e restaurar dependências
+COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+Run dotnet -v restore
+
+# Copiar o restante do código
+COPY src/ .
+COPY MigrateDatabase.cs .
+WORKDIR /src/Mottu.Api
+
+# Compilar o script de migração
+RUN dotnet publish -c Release -o /app/out
+RUN dotnet publish /src/MigrateDatabase.cs -c Release -o /app/migrate
+
+# Executar a migração
+ENTRYPOINT ["dotnet", "/app/migrate/MigrateDatabase.dll"]

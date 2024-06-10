@@ -50,5 +50,28 @@ namespace Mottu.Api.Controllers
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
+
+        [HttpPost("return")]
+        public async Task<IActionResult> ReturnRental([FromBody] ReturnRentalCommand command)
+        {
+            if (command == null)
+            {
+                return BadRequest("Invalid return rental command.");
+            }
+
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(result);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
     }
 }

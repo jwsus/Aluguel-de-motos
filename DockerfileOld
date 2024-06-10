@@ -1,0 +1,154 @@
+# # Estágio de build
+# FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# WORKDIR /src
+
+# # Copiar csproj e restaurar dependências
+# COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+# COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+# COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+# COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+# RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# # Copiar o restante do código e publicar a aplicação
+# COPY src/ .
+# WORKDIR /src/Mottu.Api
+# RUN dotnet publish -c Release -o /app/out
+
+# # Estágio final
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# WORKDIR /app
+# COPY --from=build /app/out ./
+# COPY src/Mottu.Api/appsettings.json ./
+# EXPOSE 8081
+# EXPOSE 8080
+# ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+
+
+
+# Estágio de build
+# FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# WORKDIR /src
+
+# # Copiar csproj e restaurar dependências
+# COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+# COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+# COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+# COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+# RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# # Copiar o restante do código e publicar a aplicação
+# COPY src/ .
+# WORKDIR /src/Mottu.Api
+# RUN dotnet publish -c Release -o /app/out
+
+# # Estágio final
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# WORKDIR /app
+# COPY --from=build /app/out ./
+# COPY src/Mottu.Api/appsettings.json ./
+# EXPOSE 8081
+# ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+
+# Estágio de build
+# FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# WORKDIR /src
+
+# # Copiar csproj e restaurar dependências
+# COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+# COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+# COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+# COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+# RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# # Copiar o restante do código e publicar a aplicação
+# COPY src/ .
+# WORKDIR /src/Mottu.Api
+# RUN dotnet publish -c Release -o /app/out
+
+# # Estágio final
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# WORKDIR /app
+# COPY --from=build /app/out ./
+# COPY src/Mottu.Api/appsettings.json ./
+# EXPOSE 8081
+# ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+
+
+
+
+# # Estágio de build
+# FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# WORKDIR /src
+
+# # Copiar csproj e restaurar dependências
+# COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+# COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+# COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+# COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+# RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# # Copiar o restante do código e publicar a aplicação
+# COPY src/ .
+# WORKDIR /src/Mottu.Api
+# RUN dotnet publish -c Release -o /app/out
+
+# # Estágio final
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# WORKDIR /app
+# COPY --from=build /app/out ./
+# COPY src/Mottu.Api/appsettings.json ./
+# EXPOSE 8081
+# ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+
+# Estágio de build
+# FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# WORKDIR /src
+
+# # Copiar csproj e restaurar dependências
+# COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+# COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+# COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+# COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+# RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# # Copiar o restante do código e publicar a aplicação
+# COPY src/ .
+# WORKDIR /src/Mottu.Api
+# RUN dotnet publish -c Release -o /app/out
+
+# # Estágio final
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# WORKDIR /app
+# COPY --from=build /app/out ./
+# EXPOSE 80
+# ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+
+# Estágio de build
+# Estágio de build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+ARG HTTP_PROXY="http://username:password@proxy.example.com:8080"
+# Copiar csproj e restaurar dependências
+COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+
+# Verificar conectividade antes de restaurar dependências
+RUN curl -s https://api.nuget.org/v3/index.json | head -n 20
+RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# Copiar o restante do código e publicar a aplicação
+COPY . .
+WORKDIR /src/Mottu.Api
+RUN dotnet publish -c Release -o /app/out
+
+# Estágio final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/out .
+COPY src/Mottu.Api/appsettings.json .
+EXPOSE 8081
+EXPOSE 8080
+ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+

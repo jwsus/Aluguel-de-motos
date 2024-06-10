@@ -17,8 +17,8 @@ namespace MeuProjeto.Api.Controllers
             _mediator = mediator;
             _httpContextAccessor = httpContextAccessor;
         }
-        [Authorize(Policy = "DeliverymanPolicy")]
-        [Authorize]
+        // [Authorize(Policy = "DeliverymanPolicy")]
+        // [Authorize]
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
