@@ -1,25 +1,50 @@
-# Use uma imagem base que contém o SDK do .NET 8.0
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
+# # Estágio de build
+# FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# WORKDIR /src
 
-# Defina o diretório de trabalho no contêiner
+# # Copiar csproj e restaurar dependências
+# COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+# COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+# COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+# COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+# RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# # Copiar o restante do código e publicar a aplicação
+# COPY src/ .
+# WORKDIR /src/Mottu.Api
+# RUN dotnet publish -c Release -o /app/out
+
+# # Estágio final
+# FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# WORKDIR /app
+# COPY --from=build /app/out ./
+# COPY src/Mottu.Api/appsettings.json ./
+# EXPOSE 8081
+# EXPOSE 8080
+# ENTRYPOINT ["dotnet", "Mottu.Api.dll"]
+
+# Estágio de build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+RUN dotnet --info
+
+# Copiar csproj e restaurar dependências
+COPY ["src/Mottu.Api/Mottu.Api.csproj", "Mottu.Api/"]
+COPY ["src/Mottu.Application/Mottu.Application.csproj", "Mottu.Application/"]
+COPY ["src/Mottu.Infrastructure/Mottu.Infrastructure.csproj", "Mottu.Infrastructure/"]
+COPY ["src/Mottu.Domain/Mottu.Domain.csproj", "Mottu.Domain/"]
+RUN dotnet restore "Mottu.Api/Mottu.Api.csproj"
+
+# Copiar o restante do código e publicar a aplicação
+COPY src/ .
+WORKDIR /src/Mottu.Api
+RUN dotnet publish -c Release -o /app/out
+
+# Estágio final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-
-# Copie apenas os arquivos de projeto e restaure as dependências
-COPY src/Mottu.Api/*.csproj ./src/Mottu.Api/
-RUN dotnet restore "./src/Mottu.Api/Mottu.Api.csproj"
-
-# Copie todos os arquivos do projeto e compile a aplicação
-COPY . ./
-RUN dotnet publish "./src/Mottu.Api/Mottu.Api.csproj" -c Release -o out
-
-# Use uma imagem runtime mais leve para a aplicação publicada
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-
-# Defina o diretório de trabalho no contêiner
-WORKDIR /app
-
-# Copie os binários publicados da etapa anterior
-COPY --from=build-env /app/out .
-
-# Defina o comando de entrada para o contêiner
+COPY --from=build /app/out ./
+COPY src/Mottu.Api/appsettings.json ./
+EXPOSE 8081
 ENTRYPOINT ["dotnet", "Mottu.Api.dll"]

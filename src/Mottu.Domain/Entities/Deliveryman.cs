@@ -14,9 +14,9 @@ namespace Mottu.Domain.Entities
         public virtual User User { get; set; }
 
         // Novo campo para indicar se o entregador está ativo
-        public bool IsActive { get; set; }
+        // public bool IsActive { get; set; }
 
-        // Novo campo para indicar se o entregador já aceitou um pedido
-        public bool HasAcceptedOrder { get; set; }
+        // // Novo campo para indicar se o entregador já aceitou um pedido
+        // public bool HasAcceptedOrder { get; set; }
     }
 }

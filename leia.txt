@@ -1,3 +1,0 @@
-Comando pare resolver o erro do ERROR [build  7/10] RUN dotnet restore "Mottu.Api/Mottu.Api.csproj" 
-dotnet restore src/Mottu.Api/Mottu.Api.csproj
-
