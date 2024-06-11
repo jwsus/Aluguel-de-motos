@@ -32,4 +32,4 @@ coverage/
 *.temp
 
 # Ignore configuration files
-appsettings.json
+# appsettings.json
