@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mottu.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33a64c9aa0bc90d2522173a6883e4d22535e2829")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c2e960fa8bb7624664f3063c6889a01ceaa21e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mottu.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mottu.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
