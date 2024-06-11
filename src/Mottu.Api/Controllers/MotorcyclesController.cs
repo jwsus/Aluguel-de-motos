@@ -5,11 +5,10 @@ using Mottu.Application.Motorcycles.Commands;
 using Mottu.Application.Motorcycles.CreateMotorcycle.Commands;
 using Mottu.Application.Motorcycles.Queries;
 using Mottu.Domain.Entities;
-using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.Annotations; // Importação para anotações do Swagger
 
 namespace Mottu.Api.Controllers
 {
-    // [Authorize(Policy = "DeliverymanPolicy")]
     [ApiController]
     [Route("api/[controller]")]
     public class MotorcyclesController : ControllerBase
@@ -20,8 +19,9 @@ namespace Mottu.Api.Controllers
         {
             _mediator = mediator;
         }
-
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
+        [SwaggerOperation(Summary = "Create a new motorcycle", Description = "Creates a new motorcycle with the specified details. Only Admin")]
         public async Task<IActionResult> CreateMotorcycle([FromBody] CreateMotorcycleCommand command)
         {
             if (!ModelState.IsValid)
@@ -40,8 +40,9 @@ namespace Mottu.Api.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-
+        [Authorize(Policy = "AdminPolicy, DeliverymanPolicy")]
         [HttpGet("{id}")]
+        [SwaggerOperation(Summary = "Get motorcycle by ID", Description = "Retrieves the details of a motorcycle by its ID.")]
         public async Task<IActionResult> GetMotorcycleById(Guid id)
         {
             var query = new GetMotorcycleByIdQuery(id);
@@ -54,8 +55,9 @@ namespace Mottu.Api.Controllers
 
             return Ok(motorcycle);
         }
-
+        [Authorize(Policy = "AdminPolicy, DeliverymanPolicy")]
         [HttpGet]
+        [SwaggerOperation(Summary = "Get motorcycles", Description = "Retrieves a list of motorcycles, optionally filtered by plate.")]
         public async Task<ActionResult<List<Motorcycle>>> GetMotorcycles([FromQuery] string? plate, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             var query = new GetMotorcyclesByPlateQuery
@@ -69,7 +71,9 @@ namespace Mottu.Api.Controllers
             return Ok(motorcycles);
         }
 
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPut("/plate")]
+        [SwaggerOperation(Summary = "Update motorcycle plate", Description = "Updates the plate of an existing motorcycle.")]
         public async Task<IActionResult> UpdatePlate([FromBody] UpdateMotorcyclePlateCommand command)
         {
             try
@@ -88,7 +92,9 @@ namespace Mottu.Api.Controllers
             }
         }
 
+        [Authorize(Policy = "AdminPolicy")]
         [HttpDelete("{id}")]
+        [SwaggerOperation(Summary = "Delete motorcycle", Description = "Deletes a motorcycle by its ID.")]
         public async Task<IActionResult> DeleteMotorcycle(Guid id)
         {
             try
@@ -106,6 +112,24 @@ namespace Mottu.Api.Controllers
                 // Optional: Log the exception
                 return StatusCode(500, new { Message = "An unexpected error occurred.", Details = ex.Message });
             }
+        }
+
+        [HttpPost("upload")]
+        [SwaggerOperation(Summary = "Upload image", Description = "Update registration with photo of driver's license.")]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No file uploaded.");
+
+            // Save the file (for demonstration purposes)
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), file.FileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            // Return a response (in a real application, process the image and extract data here)
+            return Ok(new { FileName = file.FileName, Message = "File uploaded successfully." });
         }
     }
 }

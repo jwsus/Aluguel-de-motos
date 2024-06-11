@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mottu.Application.Users.Commands;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Mottu.Api.Controllers
 {
@@ -18,6 +19,7 @@ namespace Mottu.Api.Controllers
 
         [HttpPost]
         [Route("login")]
+        [SwaggerOperation(Summary = "Login", Description = "Login.")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
             if (!ModelState.IsValid)

@@ -17,14 +17,10 @@ namespace MeuProjeto.Api.Controllers
             _mediator = mediator;
             _httpContextAccessor = httpContextAccessor;
         }
-        // [Authorize(Policy = "DeliverymanPolicy")]
-        // [Authorize]
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst("UserId")?.Value;
-            var role = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Role)?.Value;
-            return Ok($"chechel entity with ID: {id}");
+            return Ok($"return entity with ID: {id}");
         }
 
     }

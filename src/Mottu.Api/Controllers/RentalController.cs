@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Mottu.Application.Rentals.Commands;
 using MediatR;
-using System.Threading.Tasks;
-using System;
+using Swashbuckle.AspNetCore.Annotations; // Importação para anotações do Swagger
 
 namespace Mottu.Api.Controllers
 {
@@ -20,6 +19,7 @@ namespace Mottu.Api.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Create a new rental", Description = "Creates a new rental for the authenticated deliveryman.")]
         public async Task<IActionResult> CreateRental([FromBody] CreateRentalCommand command)
         {
             string userIdString = _httpContextAccessor.HttpContext?.User?.Identity?.Name;
@@ -52,6 +52,7 @@ namespace Mottu.Api.Controllers
         }
 
         [HttpPost("return")]
+        [SwaggerOperation(Summary = "Return a rental", Description = "Marks the rental as returned for the specified rental ID.")]
         public async Task<IActionResult> ReturnRental([FromBody] ReturnRentalCommand command)
         {
             if (command == null)

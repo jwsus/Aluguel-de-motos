@@ -1,81 +1,87 @@
 using Microsoft.AspNetCore.Mvc;
-using Mottu.Domain.Entities;
 using Mottu.Application.Common.Interfaces;
-using Mottu.Application.Services;
-using System.Threading;
-using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.Annotations; 
+using MediatR;
+using Mottu.Application.Orders.Commands;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("api/[controller]")]
 public class OrdersController : ControllerBase
 {
-    private readonly IApplicationDbContext _context;
-    private readonly OrderNotificationProducer _notificationProducer;
+    private readonly IMediator _mediator;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public OrdersController(IApplicationDbContext context, OrderNotificationProducer notificationProducer)
+    public OrdersController
+    (
+        IMediator mediator,
+        IHttpContextAccessor httpContextAccessor
+    )
     {
-        _context = context;
-        _notificationProducer = notificationProducer;
+        _mediator = mediator;
+        _httpContextAccessor = httpContextAccessor;
     }
-
+    [Authorize(Policy = "AdminPolicy")]
     [HttpPost]
-    public async Task<IActionResult> CreateOrder([FromBody] Order order, CancellationToken cancellationToken)
+    [SwaggerOperation(Summary = "Create a new order", Description = "Creates a new order with the specified details. Only Admin")]
+    public async Task<IActionResult> CreateOrder([FromBody] CreateOrderCommand command)
     {
-        order.Id = Guid.NewGuid();
-        order.Situation = OrderSituation.Available;
-
-        _context.Orders.Add(order);
-        await _context.SaveChangesAsync(cancellationToken);
-
-        // Notificar entregadores
-        _notificationProducer.NotifyOrderCreated(order);
-
-        return Ok(order);
+        var orderId = await _mediator.Send(command);
+        return Ok(orderId);
     }
-
-    [HttpPost("{orderId}/accept")]
-    public async Task<IActionResult> AcceptOrder(Guid orderId, [FromBody] Guid deliverymanId, CancellationToken cancellationToken)
+    [Authorize(Policy = "DeliverymanPolicy")]
+    [HttpPost("/accept")]
+    [SwaggerOperation(Summary = "Accept an order", Description = "Accepts the specified order and assigns it to the authenticated deliveryman.")]
+    public async Task<IActionResult> AcceptOrder(Guid orderId, CancellationToken cancellationToken)
     {
-        var order = await _context.Orders.FindAsync(new object[] { orderId }, cancellationToken);
-        if (order == null || order.Situation != OrderSituation.Available)
+        try
         {
-            return BadRequest("Pedido inválido ou já aceito.");
+            string userIdString = _httpContextAccessor.HttpContext?.User?.Identity?.Name;
+
+            var command = new AcceptOrderCommand(orderId, userIdString);
+
+            var response = await _mediator.Send(command, cancellationToken);
+
+            return Ok(response);
         }
-
-        var deliveryman = await _context.Deliverymans.FindAsync(new object[] { deliverymanId }, cancellationToken);
-        // if (deliveryman == null || deliveryman.HasAcceptedOrder)
-        // {
-        //     return BadRequest("Entregador inválido ou já aceitou um pedido.");
-        // }
-
-        order.Situation = OrderSituation.Accepted;
-        // deliveryman.HasAcceptedOrder = true;
-
-        await _context.SaveChangesAsync(cancellationToken);
-
-        return Ok(order);
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
-
+    [Authorize(Policy = "DeliverymanPolicy")]
     [HttpPost("{orderId}/complete")]
+    [SwaggerOperation(Summary = "Complete an order", Description = "Marks the specified order as delivered.")]
     public async Task<IActionResult> CompleteOrder(Guid orderId, CancellationToken cancellationToken)
     {
-        var order = await _context.Orders.FindAsync(new object[] { orderId }, cancellationToken);
-        if (order == null ||  order.Situation != OrderSituation.Accepted)
+        try
         {
-            return BadRequest("Pedido inválido ou não está aceito.");
+            string userIdString = _httpContextAccessor.HttpContext?.User?.Identity?.Name;
+            var command = new CompleteOrderCommand(orderId, userIdString);
+            var response = await _mediator.Send(command, cancellationToken);
+            return Ok(response);
         }
-
-        order.Situation = OrderSituation.Delivered;
-
-        // var deliveryman = await _context.Deliverymans
-        //     .FirstOrDefaultAsync(dm => dm.HasAcceptedOrder && dm.Id == orderId, cancellationToken);
-        // if (deliveryman != null)
-        // {
-        //     deliveryman.HasAcceptedOrder = false;
-        // }
-
-        await _context.SaveChangesAsync(cancellationToken);
-
-        return Ok(order);
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+    [Authorize(Policy = "AdminPolicy")]
+    [HttpGet("{orderId}/notifications")]
+    [SwaggerOperation(Summary = "Get notifications for an order", Description = "Retrieves all notifications associated with the specified order. Only Admin")]
+    public async Task<IActionResult> GetOrderNotifications(Guid orderId)
+    {
+        var query = new GetOrderNotificationsQuery(orderId);
+        var notifications = await _mediator.Send(query);
+        return Ok(notifications);
+    }
+    [Authorize(Policy = "AdminPolicy")]
+    [HttpGet("available")]
+    [SwaggerOperation(Summary = "Get available orders", Description = "Retrieves all orders that are currently available. Only Admin")]
+    public async Task<IActionResult> GetAvailableOrders()
+    {
+        var query = new GetAvailableOrdersQuery();
+        var orders = await _mediator.Send(query);
+        return Ok(orders);
     }
 }

@@ -53,6 +53,8 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API do MeuProjeto",
     });
 
+    c.EnableAnnotations();
+
      c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
@@ -77,17 +79,17 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configurar RabbitMQ
-builder.Services.AddSingleton(sp =>
-{
-    var factory = new ConnectionFactory()
-    {
-        HostName = "localhost",
-        UserName = "user",
-        Password = "password",
-        Port = 15672
-    };
-    return factory.CreateConnection();
-});
+// builder.Services.AddSingleton(sp =>
+// {
+//     var factory = new ConnectionFactory()
+//     {
+//         HostName = "localhost",
+//         UserName = "user",
+//         Password = "password",
+//         Port = 15672
+//     };
+//     return factory.CreateConnection();
+// });
 
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);

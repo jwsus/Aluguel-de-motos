@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mottu.Application.Common.Interfaces;
 using Mottu.Infrastructure.Data;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace SeuProjeto.Controllers // Substitua pelo namespace correto do seu projeto
 {
@@ -17,6 +18,7 @@ namespace SeuProjeto.Controllers // Substitua pelo namespace correto do seu proj
         }
 
         [HttpPost("update")]
+        [SwaggerOperation(Summary = "Update database", Description = "Run to populate the database. No login required.")]
         public async Task<IActionResult> UpdateDatabase()
         {
             try

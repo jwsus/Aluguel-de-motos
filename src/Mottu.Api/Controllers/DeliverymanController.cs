@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mottu.Application.Deliverymen.Commands;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Mottu.Api.Controllers
 {
@@ -16,10 +17,9 @@ namespace Mottu.Api.Controllers
         {
             _mediator = mediator;
         }
-
-        // [Authorize(Policy = "DeliverymanPolicy")]
         [HttpPost]
         [Route("register")]
+        [SwaggerOperation(Summary = "Register Deliveryman", Description = "Register a new delivery person. No login required.")]
         public async Task<IActionResult> Register([FromBody] RegisterDeliverymanCommand command)
         {
             if (!ModelState.IsValid)
