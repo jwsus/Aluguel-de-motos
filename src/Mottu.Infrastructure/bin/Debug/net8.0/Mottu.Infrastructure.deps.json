@@ -19,6 +19,25 @@
           "Mottu.Infrastructure.dll": {}
         }
       },
+      "AWSSDK.Core/3.7.304.14": {
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.304.14"
+          }
+        }
+      },
+      "AWSSDK.S3/3.7.309.2": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.304.14"
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.309.2"
+          }
+        }
+      },
       "FluentValidation/11.3.0": {
         "runtime": {
           "lib/net7.0/FluentValidation.dll": {
@@ -662,6 +681,8 @@
       "System.Threading.Channels/7.0.0": {},
       "Mottu.Application/1.0.0": {
         "dependencies": {
+          "AWSSDK.Core": "3.7.304.14",
+          "AWSSDK.S3": "3.7.309.2",
           "FluentValidation": "11.3.0",
           "MediatR": "11.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
@@ -688,6 +709,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.304.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9XfCpV/9/n4YTOBa4QN6zrV2EpHUiP89QC+IODZdSqRUo8yLAq2sMbFI6wcS4EdXLiuBoy62p60hJCtyJVm+uA==",
+      "path": "awssdk.core/3.7.304.14",
+      "hashPath": "awssdk.core.3.7.304.14.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.309.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FWKiHnErfLhOM+rCeedKVNPfdQkf3M+evHts+fQfZtXt45hUYubn+B/noTbbry9NUxAf67KPRnC3yhAjpdulpA==",
+      "path": "awssdk.s3/3.7.309.2",
+      "hashPath": "awssdk.s3.3.7.309.2.nupkg.sha512"
     },
     "FluentValidation/11.3.0": {
       "type": "package",

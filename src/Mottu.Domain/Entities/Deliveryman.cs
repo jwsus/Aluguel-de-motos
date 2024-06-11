@@ -8,15 +8,9 @@ namespace Mottu.Domain.Entities
         public string DriverLicenseNumber { get; set; }
         public LicenseType LicenseType { get; set; } // A, B, or A+B
         public string LicenseImagePath { get; set; }
-
-        // Foreign key to User
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
-
-        // Novo campo para indicar se o entregador está ativo
-        // public bool IsActive { get; set; }
-
-        // // Novo campo para indicar se o entregador já aceitou um pedido
-        // public bool HasAcceptedOrder { get; set; }
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
     }
 }

@@ -47,4 +47,6 @@ WORKDIR /app
 COPY --from=build /app/out ./
 COPY src/Mottu.Api/appsettings.json ./
 EXPOSE 8081
+# EXPOSE 5672
+# EXPOSE 15672
 ENTRYPOINT ["dotnet", "Mottu.Api.dll"]

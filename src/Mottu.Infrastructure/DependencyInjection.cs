@@ -3,11 +3,14 @@ using Microsoft.Extensions.DependencyInjection;
 // using Mottu.Api.Services;
 
 // using Mottu.Api.Services;
+
+// using Mottu.Api.Services;
 using Mottu.Application.Common.Interfaces;
 using Mottu.Application.Deliverymen.Commands;
 using Mottu.Application.Interfaces;
 using Mottu.Application.Motorcycles.Commands;
 using Mottu.Application.Motorcycles.Queries;
+using Mottu.Application.Orders.Handlers;
 using Mottu.Application.Services;
 using Mottu.Infrastructure.Repositories;
 
@@ -21,12 +24,17 @@ namespace Mottu.Infrastructure
             services.AddMediatR(typeof(CreateMotorcycleCommandHandler).Assembly);
             services.AddMediatR(typeof(GetMotorcycleByIdQueryHandler).Assembly);
             services.AddMediatR(typeof(RegisterDeliverymanCommandHandler).Assembly);
+            services.AddMediatR(typeof(CreateOrderCommandHandler).Assembly);
 
             // Registro do repositório (se o repositório estiver em outro projeto, certifique-se de referenciá-lo)
             services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDeliverymanRepository, DeliverymanRepository>();
             services.AddScoped<IRentalRepository, RentalRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<INotificationRepository, NotificationRepository>();
+
+            services.AddSingleton<S3FileService>();
 
             // services.AddSingleton<OrderNotificationProducer>(); // Registrar o serviço como Singleton
             // services.AddHostedService<OrderNotificationConsumer>();

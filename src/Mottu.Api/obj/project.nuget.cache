@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GDsG8JBTNUnFQvYFbWoFrBp4kb6eU7BbWB2KeIalyumiomoc3O51ZOmovDr/PQKQmiUTbQtcKWMc8obaT/bcCQ==",
+  "dgSpecHash": "JTgl7xBsEMk5FXy4i1hIdvCGx9p1ZdHXVYCoRa9/bm917tiM4601Y2ryvkekxsVeEG7iALN9QrH3rHByap/FAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\WINDOWS\\Documents\\Moto\\Mottu\\src\\Mottu.Api\\Mottu.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\awssdk.core\\3.7.304.14\\awssdk.core.3.7.304.14.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\awssdk.s3\\3.7.309.2\\awssdk.s3.3.7.309.2.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.1\\fluentvalidation.dependencyinjectionextensions.11.9.1.nupkg.sha512",

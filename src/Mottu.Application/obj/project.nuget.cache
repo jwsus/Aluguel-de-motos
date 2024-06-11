@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vpNUUsOt3SQ+9vHYMPBl60HngsTgiHGdZHIHrKZAOhXMqCNoq+mp38YAQoq1Te5x+Via6CzFA0coFP0g3OCvkw==",
+  "dgSpecHash": "16zBFOad+N22bb1KbjE5ZDe8HecqbklH69ldu9U0bR0VYm3u1X/eKc2PmsTE/gRglILefiKHG0y9aol9r3/EbQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\WINDOWS\\Documents\\Moto\\Mottu\\src\\Mottu.Application\\Mottu.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\awssdk.core\\3.7.304.14\\awssdk.core.3.7.304.14.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\awssdk.s3\\3.7.309.2\\awssdk.s3.3.7.309.2.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\fluentvalidation\\11.3.0\\fluentvalidation.11.3.0.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",

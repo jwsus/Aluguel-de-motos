@@ -25,5 +25,13 @@ namespace Mottu.Infrastructure.Repositories
             await _context.Deliverymans.AddAsync(deliveryman);
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateDeliverymanPhotoUrlAsync(Guid deliverymanId, string photoUrl)
+        {
+            var deliveryman = new Deliveryman { Id = deliverymanId };
+            _context.Deliverymans.Attach(deliveryman);
+            deliveryman.LicenseImagePath = photoUrl;
+            await _context.SaveChangesAsync();
+        }
     }
 }

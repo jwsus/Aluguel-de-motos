@@ -83,7 +83,6 @@ namespace Mottu.Application.Rentals.Handlers
 
         public (int DurationInDays, decimal DailyRate) GetRentalPlanDetails(RentalPlan plan)
         {
-            //TODO: atualizar valores nos atributos do enum
             return plan switch
             {
                 RentalPlan.SevenDays => (7, 30m),

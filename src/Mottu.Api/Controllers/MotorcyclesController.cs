@@ -113,23 +113,5 @@ namespace Mottu.Api.Controllers
                 return StatusCode(500, new { Message = "An unexpected error occurred.", Details = ex.Message });
             }
         }
-
-        [HttpPost("upload")]
-        [SwaggerOperation(Summary = "Upload image", Description = "Update registration with photo of driver's license.")]
-        public async Task<IActionResult> UploadImage(IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-                return BadRequest("No file uploaded.");
-
-            // Save the file (for demonstration purposes)
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), file.FileName);
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
-
-            // Return a response (in a real application, process the image and extract data here)
-            return Ok(new { FileName = file.FileName, Message = "File uploaded successfully." });
-        }
     }
 }

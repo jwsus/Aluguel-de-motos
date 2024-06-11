@@ -7,6 +7,6 @@ namespace Mottu.Infrastructure.Repositories
     {
         Task<Deliveryman> GetDeliverymanByUserIdAsync(Guid userId);
         Task AddDeliverymanAsync(Deliveryman deliveryman);
-        // Other methods as needed
+        Task UpdateDeliverymanPhotoUrlAsync(Guid deliverymanId, string photoUrl);
     }
 }

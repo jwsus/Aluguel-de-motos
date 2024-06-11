@@ -113,6 +113,38 @@ namespace Mottu.Infrastructure.Migrations
                     b.ToTable("Motorcycles");
                 });
 
+            modelBuilder.Entity("Mottu.Domain.Entities.Notification", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("DeliverymanId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeliverymanId");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("Mottu.Domain.Entities.Rental", b =>
                 {
                     b.Property<Guid>("Id")
@@ -190,6 +222,37 @@ namespace Mottu.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("DeliverymanId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("RideValue")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("Situation")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeliverymanId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("Mottu.Domain.Entities.Deliveryman", b =>
                 {
                     b.HasOne("Mottu.Domain.Entities.User", "User")
@@ -199,6 +262,15 @@ namespace Mottu.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Mottu.Domain.Entities.Notification", b =>
+                {
+                    b.HasOne("Mottu.Domain.Entities.Deliveryman", null)
+                        .WithMany("Notifications")
+                        .HasForeignKey("DeliverymanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Mottu.Domain.Entities.Rental", b =>
@@ -218,6 +290,22 @@ namespace Mottu.Infrastructure.Migrations
                     b.Navigation("Deliveryman");
 
                     b.Navigation("Motorcycle");
+                });
+
+            modelBuilder.Entity("Order", b =>
+                {
+                    b.HasOne("Mottu.Domain.Entities.Deliveryman", "Deliveryman")
+                        .WithMany("Orders")
+                        .HasForeignKey("DeliverymanId");
+
+                    b.Navigation("Deliveryman");
+                });
+
+            modelBuilder.Entity("Mottu.Domain.Entities.Deliveryman", b =>
+                {
+                    b.Navigation("Notifications");
+
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

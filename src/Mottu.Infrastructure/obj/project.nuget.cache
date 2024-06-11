@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AnNUHi7PE1HX2EfVXT6Ddwp5lILmCtEkR18NQIfIa8PzENhM/lLKi22CAb3x4Vom6ZhbXm82UcmosJ647HIeBA==",
+  "dgSpecHash": "WOk/z5JHw1HwVYt9MR0yVUlUrzYCNFMVI5Jx4rQlbie2Yy3yWa+HSpTvLYhjh9/H6ypup8OttfVUdNo6ieiyew==",
   "success": true,
   "projectFilePath": "C:\\Users\\WINDOWS\\Documents\\Moto\\Mottu\\src\\Mottu.Infrastructure\\Mottu.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\awssdk.core\\3.7.304.14\\awssdk.core.3.7.304.14.nupkg.sha512",
+    "C:\\Users\\WINDOWS\\.nuget\\packages\\awssdk.s3\\3.7.309.2\\awssdk.s3.3.7.309.2.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\fluentvalidation\\11.3.0\\fluentvalidation.11.3.0.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\WINDOWS\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",

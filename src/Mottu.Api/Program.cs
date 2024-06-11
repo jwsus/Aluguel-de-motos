@@ -39,6 +39,8 @@ builder.Services.AddControllers()
 builder.Services.AddControllers()
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddApplicationServices();
 
 var connectionString = builder.Services.AddDbContext<ApplicationDbContext>(options =>

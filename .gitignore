@@ -1,0 +1,35 @@
+# Ignore build output directories
+/bin/
+/obj/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+
+# Ignore build artifacts
+*.dll
+*.pdb
+*.exe
+*.apphost
+
+# Ignore coverage files
+coverage/
+
+# Ignore logs
+*.log
+
+# Ignore Rider project files
+.idea/
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore configuration files
+appsettings.json

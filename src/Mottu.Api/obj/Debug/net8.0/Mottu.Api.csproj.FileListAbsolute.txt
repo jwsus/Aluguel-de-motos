@@ -127,3 +127,5 @@ C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\Newtonsoft.
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\RabbitMQ.Client.dll
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\WINDOWS\Documents\Moto\Mottu\src\Mottu.Api\bin\Debug\net8.0\AWSSDK.S3.dll
