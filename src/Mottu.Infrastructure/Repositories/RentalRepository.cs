@@ -25,18 +25,15 @@ namespace Mottu.Infrastructure.Repositories
 
       public async Task UpdateRentalCostAsync(Guid rentalId, DateTime endDate, decimal totalCost, CancellationToken cancellationToken)
       {
-          // Buscar a entidade existente
             var rental = await _context.Rentals.FindAsync(new object[] { rentalId }, cancellationToken);
             if (rental == null)
             {
                 throw new InvalidOperationException("Rental not found.");
             }
 
-            // Atualizar as propriedades necessárias
             rental.EndDate = endDate;
             rental.TotalCost = totalCost;
 
-            // Marcar a entidade como modificada
             _context.Rentals.Update(rental);
 
             await _context.SaveChangesAsync(cancellationToken);

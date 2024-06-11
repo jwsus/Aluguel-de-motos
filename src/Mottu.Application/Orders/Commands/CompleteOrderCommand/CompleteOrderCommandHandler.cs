@@ -1,12 +1,7 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Mottu.Application.Common.Interfaces;
 using Mottu.Application.Deliverymen.Queries;
 using Mottu.Application.Orders.Queries;
-using Mottu.Domain.Entities;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Mottu.Application.Orders.Commands
 {
@@ -51,7 +46,7 @@ namespace Mottu.Application.Orders.Commands
 
             if(deliverymanId != order.DeliverymanId)
             {
-                throw new Exception("Delivery person does not match the order..");
+                throw new Exception("Delivery person does not match the order");
             }
 
             order.Situation = OrderSituation.Delivered;

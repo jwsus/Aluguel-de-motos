@@ -51,6 +51,7 @@ namespace Mottu.Application.Orders.Handlers
             await _notificationRepository.AddNotificationsAsync(notifications);
             foreach (var deliveryman in eligibleDeliverymen)
             {
+                //TODO: conectar com RabbitMQ utilizando DOCKER
                 // Simula a notificação
                 Console.WriteLine($"Notifying deliveryman {deliveryman.Id} about new order {order.Id}");
                 

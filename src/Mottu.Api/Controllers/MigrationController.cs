@@ -4,7 +4,7 @@ using Mottu.Application.Common.Interfaces;
 using Mottu.Infrastructure.Data;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace SeuProjeto.Controllers // Substitua pelo namespace correto do seu projeto
+namespace Migration.Controllers 
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -24,7 +24,7 @@ namespace SeuProjeto.Services
                 HostName = "localhost",
                 UserName = "guest",
                 Password = "guest",
-                Port = 5672 // Porta padrão do RabbitMQ
+                Port = 5672 
             };
             Console.WriteLine(factory);
             // Tentativa de conexão com espera

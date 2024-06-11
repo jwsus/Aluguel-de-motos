@@ -12,8 +12,8 @@ namespace Mottu.Application.Motorcycles.Queries
     public class GetMotorcyclesByPlateQuery : IRequest<List<Motorcycle>>
     {
         public string? Plate { get; set; }
-        public int Page { get; set; } = 1; // Página padrão é 1
-        public int PageSize { get; set; } = 10; // Tamanho padrão da página é 10
+        public int Page { get; set; } = 1; 
+        public int PageSize { get; set; } = 10;
     }
 
     public class GetMotorcyclesByPlateQueryHandler : IRequestHandler<GetMotorcyclesByPlateQuery, List<Motorcycle>>

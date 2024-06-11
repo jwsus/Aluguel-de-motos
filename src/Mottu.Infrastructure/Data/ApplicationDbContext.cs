@@ -32,9 +32,7 @@ namespace Mottu.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new MotorcycleConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new DeliverymanConfiguration());
-            // modelBuilder.ApplyConfiguration(new DeliveryPersonConfiguration());
-            // modelBuilder.ApplyConfiguration(new RentalConfiguration());
-            // modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
   }
 }

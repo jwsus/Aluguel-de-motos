@@ -32,7 +32,6 @@ namespace Mottu.Application.Orders.Commands
         {
             try
             {
-
                 if (string.IsNullOrEmpty(request.UserId) || !Guid.TryParse(request.UserId, out Guid userId))
                 {
                     throw new Exception("Invalid user identity.");
@@ -52,7 +51,7 @@ namespace Mottu.Application.Orders.Commands
                     throw new Exception("Delivery person not found.");
                 }
 
-                var checkAcceptedOrderQUery = new CheckDeliverymanEligibledOrdersQuery(deliverymanId);
+                var checkAcceptedOrderQUery = new CheckDeliverymanEligibledOrdersQuery(new Guid(deliverymanId.ToString()));
                 var eligible = await _mediator.Send(checkAcceptedOrderQUery, cancellationToken);
                 if (!eligible)
                 {
@@ -68,7 +67,7 @@ namespace Mottu.Application.Orders.Commands
                 {
                     OrderId = order.Id,
                     Situation = order.Situation,
-                    DeliverymanId = deliverymanId
+                    DeliverymanId = new Guid(deliverymanId.ToString())
                 };
             }
             catch (Exception ex)

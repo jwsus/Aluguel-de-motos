@@ -5,7 +5,7 @@ using Mottu.Application.Motorcycles.Commands;
 using Mottu.Application.Motorcycles.CreateMotorcycle.Commands;
 using Mottu.Application.Motorcycles.Queries;
 using Mottu.Domain.Entities;
-using Swashbuckle.AspNetCore.Annotations; // Importação para anotações do Swagger
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Mottu.Api.Controllers
 {
@@ -33,14 +33,13 @@ namespace Mottu.Api.Controllers
             {
                 var id = await _mediator.Send(command);
                 return Ok(id);
-                // return CreatedAtAction(nameof(GetMotorcycleById), new { id }, command);
             }
             catch (ArgumentException ex)
             {
                 return BadRequest(new { message = ex.Message });
             }
         }
-        [Authorize(Policy = "AdminPolicy, DeliverymanPolicy")]
+        [Authorize(Policy = "AdminOrDeliverymanPolicy")]
         [HttpGet("{id}")]
         [SwaggerOperation(Summary = "Get motorcycle by ID", Description = "Retrieves the details of a motorcycle by its ID.")]
         public async Task<IActionResult> GetMotorcycleById(Guid id)
@@ -55,7 +54,7 @@ namespace Mottu.Api.Controllers
 
             return Ok(motorcycle);
         }
-        [Authorize(Policy = "AdminPolicy, DeliverymanPolicy")]
+        [Authorize(Policy = "AdminOrDeliverymanPolicy")]
         [HttpGet]
         [SwaggerOperation(Summary = "Get motorcycles", Description = "Retrieves a list of motorcycles, optionally filtered by plate.")]
         public async Task<ActionResult<List<Motorcycle>>> GetMotorcycles([FromQuery] string? plate, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
@@ -109,7 +108,6 @@ namespace Mottu.Api.Controllers
             }
             catch (Exception ex)
             {
-                // Optional: Log the exception
                 return StatusCode(500, new { Message = "An unexpected error occurred.", Details = ex.Message });
             }
         }

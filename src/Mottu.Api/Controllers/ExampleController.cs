@@ -10,12 +10,9 @@ namespace MeuProjeto.Api.Controllers
     [Route("api/[controller]")]
     public class ExampleController : ControllerBase
     {
-        private readonly IMediator _mediator;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public ExampleController(IMediator mediator, IHttpContextAccessor httpContextAccessor)
+        public ExampleController()
         {
-            _mediator = mediator;
-            _httpContextAccessor = httpContextAccessor;
+           
         }
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)

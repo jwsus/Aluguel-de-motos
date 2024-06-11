@@ -26,17 +26,17 @@ namespace Mottu.Infrastructure
             services.AddMediatR(typeof(RegisterDeliverymanCommandHandler).Assembly);
             services.AddMediatR(typeof(CreateOrderCommandHandler).Assembly);
 
-            // Registro do repositório (se o repositório estiver em outro projeto, certifique-se de referenciá-lo)
-            services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
+            // Registro dos repositórios
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDeliverymanRepository, DeliverymanRepository>();
             services.AddScoped<IRentalRepository, RentalRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
 
+            // Registro dos Serviços
             services.AddSingleton<S3FileService>();
-
-            // services.AddSingleton<OrderNotificationProducer>(); // Registrar o serviço como Singleton
+            // services.AddSingleton<OrderNotificationProducer>(); 
             // services.AddHostedService<OrderNotificationConsumer>();
 
             return services;

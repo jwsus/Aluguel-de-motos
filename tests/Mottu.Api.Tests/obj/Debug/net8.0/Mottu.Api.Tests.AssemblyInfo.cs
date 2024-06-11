@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mottu.Api.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f2ab2f183b21c7a5cf0582e8c36dd62348c9724")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a2d68e64d9b2c02c3272f7d17a559ba80be1cbf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mottu.Api.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mottu.Api.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

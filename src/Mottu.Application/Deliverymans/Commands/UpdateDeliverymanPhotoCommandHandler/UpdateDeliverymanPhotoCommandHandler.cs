@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 using Mottu.Infrastructure.Repositories;
 using Mottu.Application.Services;
@@ -54,7 +50,7 @@ namespace Mottu.Application.Deliverymen.Commands
                 stream.Position = 0;
                 var fileUrl = await _s3FileService.UploadFileAsync(stream, request.Photo.FileName);
 
-                await _deliverymanRepository.UpdateDeliverymanPhotoUrlAsync(deliverymanId, fileUrl);
+                await _deliverymanRepository.UpdateDeliverymanPhotoUrlAsync(new Guid(deliverymanId.ToString()), fileUrl);
 
                 return fileUrl;
             }

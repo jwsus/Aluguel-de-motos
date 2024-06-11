@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Domain.Tests", "tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Infrastructure.Tests", "tests\Mottu.Infrastructure.Tests\Mottu.Infrastructure.Tests.csproj", "{8FD06A12-6223-4ED6-AF09-370E53E88412}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Tests", "Mottu.Tests\Mottu.Tests.csproj", "{C97E78A2-E1D3-4520-BA4A-6AAFBCB04F1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{8FD06A12-6223-4ED6-AF09-370E53E88412}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FD06A12-6223-4ED6-AF09-370E53E88412}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FD06A12-6223-4ED6-AF09-370E53E88412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97E78A2-E1D3-4520-BA4A-6AAFBCB04F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97E78A2-E1D3-4520-BA4A-6AAFBCB04F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97E78A2-E1D3-4520-BA4A-6AAFBCB04F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97E78A2-E1D3-4520-BA4A-6AAFBCB04F1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E3DF05F6-4152-4E8A-A9DF-74A239B9D792} = {B6D8173C-7662-4B88-90CF-BEAE516FE8E3}

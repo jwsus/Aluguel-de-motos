@@ -1,10 +1,6 @@
 using MediatR;
 using Mottu.Application.Common.Interfaces;
 using Mottu.Domain.Entities;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Mottu.Application.Interfaces;
 using Mottu.Application.Motorcycles.Queries;
 

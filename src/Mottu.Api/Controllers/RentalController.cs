@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Mottu.Application.Rentals.Commands;
 using MediatR;
-using Swashbuckle.AspNetCore.Annotations; // Importação para anotações do Swagger
+using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Authorization; 
 
 namespace Mottu.Api.Controllers
 {
@@ -19,6 +20,7 @@ namespace Mottu.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "DeliverymanPolicy")]
         [SwaggerOperation(Summary = "Create a new rental", Description = "Creates a new rental for the authenticated deliveryman.")]
         public async Task<IActionResult> CreateRental([FromBody] CreateRentalCommand command)
         {
@@ -46,12 +48,12 @@ namespace Mottu.Api.Controllers
             }
             catch (Exception ex)
             {
-                // Log exception here
-                return StatusCode(500, "An unexpected error occurred.");
+                return StatusCode(500, $"An unexpected error occurred.{ex.Message}");
             }
         }
 
         [HttpPost("return")]
+        [Authorize(Policy = "DeliverymanPolicy")]
         [SwaggerOperation(Summary = "Return a rental", Description = "Marks the rental as returned for the specified rental ID.")]
         public async Task<IActionResult> ReturnRental([FromBody] ReturnRentalCommand command)
         {

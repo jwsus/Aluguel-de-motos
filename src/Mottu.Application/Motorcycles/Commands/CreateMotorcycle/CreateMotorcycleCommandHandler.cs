@@ -10,6 +10,7 @@ namespace Mottu.Application.Motorcycles.Commands
     public class CreateMotorcycleCommandHandler : IRequestHandler<CreateMotorcycleCommand, Guid>
     {
         private readonly IMotorcycleRepository _repository;
+        private readonly CreateMotorcycleCommandHandler _handler;
 
         public CreateMotorcycleCommandHandler(IMotorcycleRepository repository)
         {
@@ -18,7 +19,6 @@ namespace Mottu.Application.Motorcycles.Commands
 
         public async Task<Guid> Handle(CreateMotorcycleCommand request, CancellationToken cancellationToken)
         {
-            // Verificar se a placa já existe
             if (await _repository.LicensePlateExistsAsync(request.LicensePlate))
             {
                 throw new ArgumentException("A motorcycle with this license plate already exists.");

@@ -1,11 +1,7 @@
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Mottu.Application.Common.Interfaces;
-using Mottu.Domain.Entities;
 
 namespace Mottu.Application.Deliverymen.Queries
 {

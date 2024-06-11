@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Mottu.Application.Common.Interfaces;
 using Swashbuckle.AspNetCore.Annotations; 
 using MediatR;
 using Mottu.Application.Orders.Commands;
 using Microsoft.AspNetCore.Authorization;
+using Mottu.Domain.Entities;
+using Mottu.Application.Deliverymen.Queries;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -83,5 +84,22 @@ public class OrdersController : ControllerBase
         var query = new GetAvailableOrdersQuery();
         var orders = await _mediator.Send(query);
         return Ok(orders);
+    }
+
+    [HttpGet("/notifications")]
+    [Authorize(Policy = "DeliverymanPolicy")]
+     [SwaggerOperation(Summary = "Get deliveryman notifications", Description = "Retrieves all notifications related to a specific deliveryman.")]
+    public async Task<ActionResult<IEnumerable<Notification>>> GetNotifications()
+    {
+        string userIdString = _httpContextAccessor.HttpContext?.User?.Identity?.Name;
+        var query = new GetDeliverymanNotificationsQuery(userIdString);
+        var notifications = await _mediator.Send(query);
+
+        if (notifications == null || notifications.Count == 0)
+        {
+            return NotFound();
+        }
+
+        return Ok(notifications);
     }
 }

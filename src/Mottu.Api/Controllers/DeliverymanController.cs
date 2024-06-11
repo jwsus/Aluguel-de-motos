@@ -1,15 +1,7 @@
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Amazon;
-using Amazon.S3;
-using Amazon.S3.Transfer;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mottu.Application.Deliverymen.Commands;
-using Mottu.Application.Services;
-using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Mottu.Api.Controllers
@@ -50,8 +42,14 @@ namespace Mottu.Api.Controllers
         
 
         [HttpPost("upload-photo")]
+        [Authorize(Policy = "DeliverymanPolicy")]
         public async Task<IActionResult> UploadPhoto(IFormFile file)
         {
+            var validTypes = new[] { "image/png", "image/bmp" };
+            if (!validTypes.Contains(file.ContentType))
+            {
+                return BadRequest(new { Message = "Invalid file type. Only PNG and BMP are allowed." });
+            }
             string userIdString = _httpContextAccessor.HttpContext?.User?.Identity?.Name;
             var command = new UpdateDeliverymanPhotoCommand
             {
