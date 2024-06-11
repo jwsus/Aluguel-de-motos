@@ -3,13 +3,14 @@
 Para clonar este repositório, execute o seguinte comando: https://github.com/seu-usuario/seu-repositorio.git
 ## Configuração appsettings.json
 Adicione as configurações da AWS no arquivo appsettings.json no seguinte formato:
-```"AWS": {
+
+``` "AWS": {
     "Profile": "default",
     "Region": "us-east-2",
     "AccessKey": "",
     "SecretKey": "",
     "BucketName": ""
-  }```
+  } ```
 Altere o "DefaultConnection" para rodar via docker para: ```"Host=postgres;Port=5432;Username=postgres;Password=postgres;Database=mottu"```
 nesse formato sua aplicação ira conseguir se conectar no seu banco de dados, caso queira rodar localmente utilize: ```"Host=localhost;Port=5432;Username=postgres;Password=root;Database=Mottu"```
 
