@@ -2,7 +2,7 @@
 
 
 ## Clonando o Repositório
-Para clonar este repositório, execute o seguinte comando: https://github.com/seu-usuario/seu-repositorio.git
+Para clonar este repositório, execute o seguinte comando: https://github.com/jwsus/Aluguel-de-motos.git
 ## Configuração appsettings.json
 Adicione as configurações da AWS no arquivo appsettings.json no seguinte formato:
 
